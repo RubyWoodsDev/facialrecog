@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Face Analyzer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Caveat&family=Indie+Flower&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+  </head>
+  <body>
+     
+  
+ <% if (!data) { %>
+  <img src='<%= img%>' alt='Hot dog'> 
+  <h2>no face detected</h2>
+  <% } else { %>
+    <img src='<%= img%>' alt='Hot dog'>
+    <ul>
+      <li>Anger: <%= (data.anger * 100).toFixed(1) %>%</li>
+      <li>Contempt: <%= (data.contempt * 100).toFixed(1) %>%</li>
+      <li>Disgust: <%= (data.disgust * 100).toFixed(1) %>%</li>
+      <li>Fear: <%= (data.fear * 100).toFixed(1) %>%</li>
+      <li>Happiness: <%= (data.happiness *100).toFixed(1) %>%</li>
+      <li>Neutral: <%= (data.neutral * 100).toFixed(1) %>%</li>
+      <li>Sadness: <%= (data.sadness * 100).toFixed(1) %>%</li>
+      <li>Surprise: <%= (data.surprise * 100).toFixed(1) %>%</li>
+    </ul>
+    <% } %>
+
+  
+    <form action="/" enctype="multipart/form-data" method="post">
+      <input type="file" name="file-to-upload">
+      <input type="submit" value="Upload">
+    </form>  
+  </body>
+</html>
